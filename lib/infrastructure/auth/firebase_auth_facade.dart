@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../domain/auth/auth_facade_interface.dart';
-import '../../domain/auth/value_objects.dart';
 import '../../domain/auth/auth_failure.dart';
+import '../../domain/auth/value_objects.dart';
 
 class FirebaseAuthFacade implements AuthFacadeInterface{
   final FirebaseAuth _firebaseAuth;
@@ -50,7 +50,7 @@ class FirebaseAuthFacade implements AuthFacadeInterface{
   try{
     final googleUSer = await _googleSignIn.signIn();
     if(googleUSer == null){
-      return left(AuthFailure.cancelledByUser());
+      return left(const AuthFailure.cancelledByUser());
     }
 
     final googleAuthentication = await googleUSer.authentication;
@@ -58,7 +58,7 @@ class FirebaseAuthFacade implements AuthFacadeInterface{
     await _firebaseAuth.signInWithCredential(authCredentials);
 
     return right(unit);
-  }on PlatformException catch(e){
+  }on PlatformException catch(_){
     return left(const AuthFailure.serverError());
   }
   }

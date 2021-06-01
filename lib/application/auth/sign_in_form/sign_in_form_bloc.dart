@@ -1,18 +1,16 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/auth/value_objects.dart';
-import '../../../domain/auth/auth_failure.dart';
 import '../../../domain/auth/auth_facade_interface.dart';
-
-part 'sign_in_form_event.dart';
-
-part 'sign_in_form_state.dart';
+import '../../../domain/auth/auth_failure.dart';
+import '../../../domain/auth/value_objects.dart';
 
 part 'sign_in_form_bloc.freezed.dart';
+part 'sign_in_form_event.dart';
+part 'sign_in_form_state.dart';
 
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   final AuthFacadeInterface _authFacadeInterface;
@@ -61,10 +59,10 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   }
 
   Stream<SignInFormState> performAuthEmailAndPasswordAction(
-    Future<Either<AuthFailure, Unit>> actionFunction({
+    Future<Either<AuthFailure, Unit>> Function({
       required EmailAddress emailAddress,
       required Password password,
-    }),
+    }) actionFunction,
   ) async* {
     final isValidEmail = state.emailAddress.isValid();
     final isValidPassword = state.password.isValid();

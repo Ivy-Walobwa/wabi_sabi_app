@@ -67,7 +67,7 @@ class SignInFormWidget extends StatelessWidget {
                   textInputAction: TextInputAction.next,
                   onChanged: (value) => context
                       .read<SignInFormBloc>()
-                      .add(SignInFormEvent.emailChanged(value)),
+                      .add(SignInFormEvent.emailChanged(value.trim())),
                   validator: (_) => context
                       .read<SignInFormBloc>()
                       .state
@@ -87,7 +87,7 @@ class SignInFormWidget extends StatelessWidget {
                     textInputAction: TextInputAction.done,
                     onChanged: (value) => context
                         .read<SignInFormBloc>()
-                        .add(SignInFormEvent.passwordChanged(value)),
+                        .add(SignInFormEvent.passwordChanged(value.trim())),
                     validator: (_) => context
                         .read<SignInFormBloc>()
                         .state
@@ -100,71 +100,78 @@ class SignInFormWidget extends StatelessWidget {
                             (_) => null)),
                 kverticalSpaceBetweenWidgets,
                 kverticalSpaceBetweenWidgets,
-                Row(
+                if (state.isSubmitting) const LinearProgressIndicator(
+                ) else Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: CustomTextButton(
-                        onPressed: () {
-                          context.read<SignInFormBloc>().add(
-                                const SignInFormEvent
-                                    .signInWithEmailAndPasswordPressed(),
-                              );
-                        },
-                        child: const Text('Sign In'),
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: CustomTextButton(
+                            onPressed: () {
+                              context.read<SignInFormBloc>().add(
+                                    const SignInFormEvent
+                                        .signInWithEmailAndPasswordPressed(),
+                                  );
+                            },
+                            child: const Text('Sign In'),
+                          ),
+                        ),
+                        khorizontalSpaceBetweenWidgets,
+                        Expanded(
+                          child: CustomTextButton(
+                            onPressed: () {
+                              context.read<SignInFormBloc>().add(
+                                    const SignInFormEvent
+                                        .registerWithEmailAndPasswordPressed(),
+                                  );
+                            },
+                            child: const Text('Sign Up'),
+                          ),
+                        ),
+                      ],
                     ),
-                    khorizontalSpaceBetweenWidgets,
-                    Expanded(
-                      child: CustomTextButton(
-                        onPressed: () {
-                          context.read<SignInFormBloc>().add(
-                                const SignInFormEvent
-                                    .registerWithEmailAndPasswordPressed(),
-                              );
-                        },
-                        child: const Text('Sign Up'),
-                      ),
+                    kverticalSpaceBetweenWidgets,
+                    kverticalSpaceBetweenWidgets,
+                    Row(
+                      children: [
+                        const Expanded(
+                            child: Divider(
+                              color: klightPinkColor,
+                            )),
+                        khorizontalSpaceBetweenWidgets,
+                        Text(
+                          'Or',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2!
+                              .copyWith(color: Colors.white),
+                        ),
+                        khorizontalSpaceBetweenWidgets,
+                        const Expanded(
+                            child: Divider(
+                              color: klightPinkColor,
+                            )),
+                      ],
                     ),
-                  ],
-                ),
-                kverticalSpaceBetweenWidgets,
-                kverticalSpaceBetweenWidgets,
-                Row(
-                  children: [
-                    const Expanded(
-                        child: Divider(
-                      color: klightPinkColor,
-                    )),
-                    khorizontalSpaceBetweenWidgets,
-                    Text(
-                      'Or',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(color: Colors.white),
-                    ),
-                    khorizontalSpaceBetweenWidgets,
-                    const Expanded(
-                        child: Divider(
-                      color: klightPinkColor,
-                    )),
-                  ],
-                ),
-                kverticalSpaceBetweenWidgets,
-                kverticalSpaceBetweenWidgets,
-                SignInButton(
-                  Buttons.Google,
-                  text: "Continue with Google",
-                  onPressed: () {
-                    context.read<SignInFormBloc>().add(
+                    kverticalSpaceBetweenWidgets,
+                    kverticalSpaceBetweenWidgets,
+                    SignInButton(
+                      Buttons.Google,
+                      text: "Continue with Google",
+                      onPressed: () {
+                        context.read<SignInFormBloc>().add(
                           const SignInFormEvent.signInWithGooglePressed(),
                         );
-                  },
-                  padding: const EdgeInsets.all(8),
-                  elevation: 0,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(4))),
-                )
+                      },
+                      padding: const EdgeInsets.all(8),
+                      elevation: 0,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4))),
+                    )
+                  ],
+                ),
+
               ],
             ),
           ),

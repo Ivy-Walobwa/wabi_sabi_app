@@ -2,7 +2,7 @@
     package="com.walobwa.wabi_sabi_app">
    <application
         android:label="wabi_sabi_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher" >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

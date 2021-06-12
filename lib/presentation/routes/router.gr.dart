@@ -9,8 +9,8 @@ import 'package:flutter/material.dart' as _i2;
 
 import '../auth/sign_in_page.dart' as _i3;
 
-class Router extends _i1.RootStackRouter {
-  Router([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+class WabiRouter extends _i1.RootStackRouter {
+  WabiRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override

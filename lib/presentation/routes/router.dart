@@ -7,6 +7,6 @@ import '../auth/sign_in_page.dart';
   AutoRoute(page: SignInPage, initial: true),
 
 ],)
-class $Router{
+class $WabiRouter{
   
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:wabi_sabi_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../core/constants.dart';
 import '../widgets/custom_text_button.dart';
@@ -11,7 +13,26 @@ class SignInFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.authFailureOrSuccess.fold(
+            () => null,
+            (some) => some.fold(
+                    (failure) => {
+                          showTopSnackBar(
+                            context,
+                            CustomSnackBar.error(
+                                message: failure.map(
+                                    cancelledByUser: (_) => 'Cancelled',
+                                    serverError: (_) => 'Server Error',
+                                    emailAlreadyInUse: (_) =>
+                                        'Email already in use',
+                                    invalidEmailAndPasswordCombination: (_) =>
+                                        'Invalid Email and Password Combination')),
+                          )
+                        }, (_) {
+                  // TODO: NAVIGATION
+                }));
+      },
       builder: (context, state) {
         return Padding(
           padding:

@@ -26,7 +26,7 @@ class FirebaseAuthFacade implements AuthFacadeInterface {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailString, password: passwordString);
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
@@ -68,7 +68,7 @@ class FirebaseAuthFacade implements AuthFacadeInterface {
       await _firebaseAuth.signInWithCredential(authCredentials);
 
       return right(unit);
-    } on PlatformException catch (_) {
+    } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     }
   }

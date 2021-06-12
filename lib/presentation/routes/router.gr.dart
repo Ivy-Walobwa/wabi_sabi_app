@@ -7,7 +7,7 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
-import '../auth/sign_in_page.dart' as _i3;
+import '../presentation.dart' as _i3;
 
 class WabiRouter extends _i1.RootStackRouter {
   WabiRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -15,7 +15,12 @@ class WabiRouter extends _i1.RootStackRouter {
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    SignInPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i3.SplashPage();
+        }),
+    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
           return _i3.SignInPage();
@@ -23,12 +28,20 @@ class WabiRouter extends _i1.RootStackRouter {
   };
 
   @override
-  List<_i1.RouteConfig> get routes =>
-      [_i1.RouteConfig(SignInPageRoute.name, path: '/')];
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page')
+      ];
 }
 
-class SignInPageRoute extends _i1.PageRouteInfo {
-  const SignInPageRoute() : super(name, path: '/');
+class SplashRoute extends _i1.PageRouteInfo {
+  const SplashRoute() : super(name, path: '/');
 
-  static const String name = 'SignInPageRoute';
+  static const String name = 'SplashRoute';
+}
+
+class SignInRoute extends _i1.PageRouteInfo {
+  const SignInRoute() : super(name, path: '/sign-in-page');
+
+  static const String name = 'SignInRoute';
 }

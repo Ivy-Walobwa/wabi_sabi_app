@@ -1,10 +1,12 @@
 import 'package:auto_route/annotations.dart';
 
-import '../auth/sign_in_page.dart';
+import '../presentation.dart';
 
 @MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-  AutoRoute(page: SignInPage, initial: true),
+  AutoRoute(page: SplashPage, initial: true),
+  AutoRoute(page: SignInPage,),
 
 ],)
 class $WabiRouter{

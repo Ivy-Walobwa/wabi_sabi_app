@@ -36,7 +36,7 @@ class SignInFormWidget extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding:
-              const EdgeInsets.fromLTRB(appPadding, 0, appPadding, appPadding),
+              const EdgeInsets.fromLTRB(kappPadding, 0, kappPadding, kappPadding),
           child: Form(
             autovalidateMode: state.showError
                 ? AutovalidateMode.always
@@ -44,7 +44,7 @@ class SignInFormWidget extends StatelessWidget {
             child: ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: appPadding),
+                  padding: const EdgeInsets.only(top: kappPadding),
                   child: Center(
                     child: Column(
                       children: [
@@ -53,14 +53,14 @@ class SignInFormWidget extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline1,
                         ),
                         Text(
-                          signInUpText,
+                          ksignInUpText,
                           style: Theme.of(context).textTheme.caption,
                         ),
                       ],
                     ),
                   ),
                 ),
-                verticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Email'),
                   autocorrect: false,
@@ -79,7 +79,7 @@ class SignInFormWidget extends StatelessWidget {
                               orElse: () => null),
                           (_) => null),
                 ),
-                verticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
                 TextFormField(
                     decoration: const InputDecoration(labelText: 'Password'),
                     autocorrect: false,
@@ -98,8 +98,8 @@ class SignInFormWidget extends StatelessWidget {
                                 shortPassword: (_) => 'Password too short',
                                 orElse: () => null),
                             (_) => null)),
-                verticalSpaceBetweenWidgets,
-                verticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
                 Row(
                   children: [
                     Expanded(
@@ -113,7 +113,7 @@ class SignInFormWidget extends StatelessWidget {
                         child: const Text('Sign In'),
                       ),
                     ),
-                    horizontalSpaceBetweenWidgets,
+                    khorizontalSpaceBetweenWidgets,
                     Expanded(
                       child: CustomTextButton(
                         onPressed: () {
@@ -127,15 +127,15 @@ class SignInFormWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                verticalSpaceBetweenWidgets,
-                verticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
                 Row(
                   children: [
                     const Expanded(
                         child: Divider(
-                      color: lightPinkColor,
+                      color: klightPinkColor,
                     )),
-                    horizontalSpaceBetweenWidgets,
+                    khorizontalSpaceBetweenWidgets,
                     Text(
                       'Or',
                       style: Theme.of(context)
@@ -143,15 +143,15 @@ class SignInFormWidget extends StatelessWidget {
                           .bodyText2!
                           .copyWith(color: Colors.white),
                     ),
-                    horizontalSpaceBetweenWidgets,
+                    khorizontalSpaceBetweenWidgets,
                     const Expanded(
                         child: Divider(
-                      color: lightPinkColor,
+                      color: klightPinkColor,
                     )),
                   ],
                 ),
-                verticalSpaceBetweenWidgets,
-                verticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
+                kverticalSpaceBetweenWidgets,
                 SignInButton(
                   Buttons.Google,
                   text: "Continue with Google",

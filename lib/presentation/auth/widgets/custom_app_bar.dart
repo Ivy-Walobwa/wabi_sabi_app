@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: darkerPinkColor,
+      color: kdarkerPinkColor,
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

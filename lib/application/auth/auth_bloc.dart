@@ -22,16 +22,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
-    yield* event.map(
-        authCheckRequested: (e) async* {
-          final userOption = await _authFacadeInterface.getSignedInUser();
-          yield userOption.fold(() => const AuthState.unauthenticated(),
-                  (_) => const AuthState.authenticated());
-        },
-        signedOut: (e) async* {
-          await _authFacadeInterface.signOut();
-          yield const AuthState.authenticated();
-        }
-       );
+    yield* event.map(authCheckRequested: (e) async* {
+      final userOption = await _authFacadeInterface.getSignedInUser();
+      yield userOption.fold(
+        () => const AuthState.unauthenticated(),
+        (_) => const AuthState.authenticated(),
+      );
+    }, signedOut: (e) async* {
+      await _authFacadeInterface.signOut();
+      yield const AuthState.authenticated();
+    });
   }
 }

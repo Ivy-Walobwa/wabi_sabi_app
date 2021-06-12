@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 final ThemeData appTheme = ThemeData(
-  primaryColor: purpleColor,
-  accentColor: lightPinkColor,
+  primaryColor: kpurpleColor,
+  accentColor: klightPinkColor,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   fontFamily: 'Raleway',
   textTheme: const TextTheme(
@@ -23,7 +23,7 @@ final ThemeData appTheme = ThemeData(
               fontWeight: FontWeight.w400,
               fontSize: 19,
               height: 1.5,
-              color: purpleColor),
+              color: kpurpleColor),
           caption: TextStyle(
               fontWeight: FontWeight.w400,
               fontSize: 15,
@@ -48,14 +48,14 @@ final ThemeData appTheme = ThemeData(
   iconTheme: const IconThemeData(
     size: 32,
   ),
-  textSelectionTheme: const TextSelectionThemeData(cursorColor: lightPinkColor),
+  textSelectionTheme: const TextSelectionThemeData(cursorColor: klightPinkColor),
   inputDecorationTheme: const InputDecorationTheme(
-    labelStyle: TextStyle(color: lightPinkColor),
+    labelStyle: TextStyle(color: klightPinkColor),
     enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: lightPinkColor, width: 0.0),
+      borderSide: BorderSide(color: klightPinkColor, width: 0.0),
     ),
     focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: lightPinkColor, width: 0.0),
+      borderSide: BorderSide(color: klightPinkColor, width: 0.0),
     ),
   ),
 );

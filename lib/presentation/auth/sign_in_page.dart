@@ -14,7 +14,7 @@ class SignInPage extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: purpleColor,
+      backgroundColor: kpurpleColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(height * 0.3),
         child: Stack(
@@ -27,27 +27,27 @@ class SignInPage extends StatelessWidget {
                 left: 10,
                 top: 20,
                 child: CircleAvatar(
-                  backgroundColor: purpleColor,
+                  backgroundColor: kpurpleColor,
                 )),
             const Positioned(
                 right: 50,
                 top: 100,
                 child: CircleAvatar(
                   radius: 6,
-                  backgroundColor: purpleColor,
+                  backgroundColor: kpurpleColor,
                 )),
             const Positioned(
                 left: 50,
                 bottom: 100,
                 child: CircleAvatar(
                   radius: 6,
-                  backgroundColor: purpleColor,
+                  backgroundColor: kpurpleColor,
                 )),
             const Positioned(
                 bottom: 50,
                 right: 10,
                 child: CircleAvatar(
-                  backgroundColor: purpleColor,
+                  backgroundColor: kpurpleColor,
                 )),
           ],
         ),

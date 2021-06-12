@@ -75,11 +75,17 @@ class FirebaseAuthFacade implements AuthFacadeInterface {
 
   @override
   Future<Option<WabiUser>> getSignedInUser() async {
-    final firebaseUser = _firebaseAuth.currentUser!;
+    final firebaseUser = _firebaseAuth.currentUser;
+    // optionOf was not working
 
-    return optionOf(WabiUser(
-        id: UniqueID.fromUniqueString(firebaseUser.uid),
-        emailAddress: EmailAddress(firebaseUser.email!)));
+    if(firebaseUser != null){
+      return some(WabiUser(
+          id: UniqueID.fromUniqueString(firebaseUser.uid),
+          emailAddress: EmailAddress(firebaseUser.email!)));
+    }else{
+      return none();
+    }
+
   }
 
   @override

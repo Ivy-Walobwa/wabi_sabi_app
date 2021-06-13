@@ -121,9 +121,10 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Note implements _Note {
+class _$_Note extends _Note {
   const _$_Note(
-      {required this.id, required this.noteBody, required this.noteTimeStamp});
+      {required this.id, required this.noteBody, required this.noteTimeStamp})
+      : super._();
 
   @override
   final UniqueID id;
@@ -164,11 +165,12 @@ class _$_Note implements _Note {
       __$NoteCopyWithImpl<_Note>(this, _$identity);
 }
 
-abstract class _Note implements Note {
+abstract class _Note extends Note {
   const factory _Note(
       {required UniqueID id,
       required NoteBody noteBody,
       required NoteTimeStamp noteTimeStamp}) = _$_Note;
+  const _Note._() : super._();
 
   @override
   UniqueID get id => throw _privateConstructorUsedError;

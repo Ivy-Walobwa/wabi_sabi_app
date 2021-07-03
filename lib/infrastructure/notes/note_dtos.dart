@@ -10,11 +10,14 @@ part 'note_dtos.g.dart';
 
 @freezed
 abstract class NoteDto implements _$NoteDto {
+
   const factory NoteDto({
     @JsonKey(ignore: true) String? id,
     required String noteBody,
     required String noteTimeStamp,
   }) = _NoteDto;
+
+  const NoteDto._();
 
   factory NoteDto.fromDomain(Note note) {
     return NoteDto(

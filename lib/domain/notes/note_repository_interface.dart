@@ -5,8 +5,6 @@ import 'note.dart';
 import 'note_failure.dart';
 
 abstract class NoteRepositoryInterface{
-  // CRUD
-  // watch notes - streams
   Stream<Either<NoteFailure, KtList<Note>>> watchAll();
   Stream<Either<NoteFailure, KtList<Note>>> watchUncompleted();
   Future<Either<NoteFailure, Unit>> create(Note note);

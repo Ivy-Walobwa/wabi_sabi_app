@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wabi_sabi_app/domain/core/value_objects.dart';
@@ -76,8 +75,6 @@ class FirebaseAuthFacade implements AuthFacadeInterface {
   @override
   Future<Option<WabiUser>> getSignedInUser() async {
     final firebaseUser = _firebaseAuth.currentUser;
-    // optionOf was not working
-
     if(firebaseUser != null){
       return some(WabiUser(
           id: UniqueID.fromUniqueString(firebaseUser.uid),

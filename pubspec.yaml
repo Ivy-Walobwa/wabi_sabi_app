@@ -23,9 +23,9 @@ dependencies:
   get_it: ^7.1.3
   google_sign_in: ^5.0.4
   injectable: ^1.4.1
+  json_annotation: ^4.0.1
   kt_dart: ^0.9.1
   top_snackbar_flutter: ^1.0.0
-  json_annotation: ^4.0.1
   uuid: ^3.0.4
   cloud_firestore: ^2.2.2
 

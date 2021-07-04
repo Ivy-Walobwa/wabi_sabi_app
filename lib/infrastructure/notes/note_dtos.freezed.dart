@@ -23,11 +23,13 @@ class _$NoteDtoTearOff {
   _NoteDto call(
       {@JsonKey(ignore: true) String? id,
       required String noteBody,
-      required String noteTimeStamp}) {
+      required String noteTimeStamp,
+      String? noteLeadOnText}) {
     return _NoteDto(
       id: id,
       noteBody: noteBody,
       noteTimeStamp: noteTimeStamp,
+      noteLeadOnText: noteLeadOnText,
     );
   }
 
@@ -45,6 +47,7 @@ mixin _$NoteDto {
   String? get id => throw _privateConstructorUsedError;
   String get noteBody => throw _privateConstructorUsedError;
   String get noteTimeStamp => throw _privateConstructorUsedError;
+  String? get noteLeadOnText => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,7 +61,8 @@ abstract class $NoteDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String noteBody,
-      String noteTimeStamp});
+      String noteTimeStamp,
+      String? noteLeadOnText});
 }
 
 /// @nodoc
@@ -74,6 +78,7 @@ class _$NoteDtoCopyWithImpl<$Res> implements $NoteDtoCopyWith<$Res> {
     Object? id = freezed,
     Object? noteBody = freezed,
     Object? noteTimeStamp = freezed,
+    Object? noteLeadOnText = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -88,6 +93,10 @@ class _$NoteDtoCopyWithImpl<$Res> implements $NoteDtoCopyWith<$Res> {
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
               as String,
+      noteLeadOnText: noteLeadOnText == freezed
+          ? _value.noteLeadOnText
+          : noteLeadOnText // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,7 +109,8 @@ abstract class _$NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String noteBody,
-      String noteTimeStamp});
+      String noteTimeStamp,
+      String? noteLeadOnText});
 }
 
 /// @nodoc
@@ -117,6 +127,7 @@ class __$NoteDtoCopyWithImpl<$Res> extends _$NoteDtoCopyWithImpl<$Res>
     Object? id = freezed,
     Object? noteBody = freezed,
     Object? noteTimeStamp = freezed,
+    Object? noteLeadOnText = freezed,
   }) {
     return _then(_NoteDto(
       id: id == freezed
@@ -131,6 +142,10 @@ class __$NoteDtoCopyWithImpl<$Res> extends _$NoteDtoCopyWithImpl<$Res>
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
               as String,
+      noteLeadOnText: noteLeadOnText == freezed
+          ? _value.noteLeadOnText
+          : noteLeadOnText // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -141,7 +156,8 @@ class _$_NoteDto extends _NoteDto {
   const _$_NoteDto(
       {@JsonKey(ignore: true) this.id,
       required this.noteBody,
-      required this.noteTimeStamp})
+      required this.noteTimeStamp,
+      this.noteLeadOnText})
       : super._();
 
   factory _$_NoteDto.fromJson(Map<String, dynamic> json) =>
@@ -154,10 +170,12 @@ class _$_NoteDto extends _NoteDto {
   final String noteBody;
   @override
   final String noteTimeStamp;
+  @override
+  final String? noteLeadOnText;
 
   @override
   String toString() {
-    return 'NoteDto(id: $id, noteBody: $noteBody, noteTimeStamp: $noteTimeStamp)';
+    return 'NoteDto(id: $id, noteBody: $noteBody, noteTimeStamp: $noteTimeStamp, noteLeadOnText: $noteLeadOnText)';
   }
 
   @override
@@ -171,7 +189,10 @@ class _$_NoteDto extends _NoteDto {
                     .equals(other.noteBody, noteBody)) &&
             (identical(other.noteTimeStamp, noteTimeStamp) ||
                 const DeepCollectionEquality()
-                    .equals(other.noteTimeStamp, noteTimeStamp)));
+                    .equals(other.noteTimeStamp, noteTimeStamp)) &&
+            (identical(other.noteLeadOnText, noteLeadOnText) ||
+                const DeepCollectionEquality()
+                    .equals(other.noteLeadOnText, noteLeadOnText)));
   }
 
   @override
@@ -179,7 +200,8 @@ class _$_NoteDto extends _NoteDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(noteBody) ^
-      const DeepCollectionEquality().hash(noteTimeStamp);
+      const DeepCollectionEquality().hash(noteTimeStamp) ^
+      const DeepCollectionEquality().hash(noteLeadOnText);
 
   @JsonKey(ignore: true)
   @override
@@ -196,7 +218,8 @@ abstract class _NoteDto extends NoteDto {
   const factory _NoteDto(
       {@JsonKey(ignore: true) String? id,
       required String noteBody,
-      required String noteTimeStamp}) = _$_NoteDto;
+      required String noteTimeStamp,
+      String? noteLeadOnText}) = _$_NoteDto;
   const _NoteDto._() : super._();
 
   factory _NoteDto.fromJson(Map<String, dynamic> json) = _$_NoteDto.fromJson;
@@ -208,6 +231,8 @@ abstract class _NoteDto extends NoteDto {
   String get noteBody => throw _privateConstructorUsedError;
   @override
   String get noteTimeStamp => throw _privateConstructorUsedError;
+  @override
+  String? get noteLeadOnText => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$NoteDtoCopyWith<_NoteDto> get copyWith =>

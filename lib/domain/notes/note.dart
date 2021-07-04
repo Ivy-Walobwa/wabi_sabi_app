@@ -14,6 +14,7 @@ abstract class Note implements _$Note {
   const factory Note({
     required UniqueID id,
     required NoteBody noteBody,
+    NoteLeadOnText? noteLeadOnText,
     required NoteTimeStamp noteTimeStamp,
   }) = _Note;
 
@@ -21,12 +22,13 @@ abstract class Note implements _$Note {
   factory Note.empty() => Note(
       id: UniqueID(),
       noteBody: NoteBody(''),
+      noteLeadOnText: NoteLeadOnText(''),
       noteTimeStamp: NoteTimeStamp(''));
 
 
   Option<ValueFailure<dynamic>> get failureOption {
     return noteBody.value
-        .andThen(noteTimeStamp.value)
+        .andThen(noteTimeStamp.value).andThen(noteLeadOnText!.value)
         .fold((f) => some(f), (_) => none());
   }
 }

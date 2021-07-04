@@ -15,6 +15,7 @@ abstract class NoteDto implements _$NoteDto {
     @JsonKey(ignore: true) String? id,
     required String noteBody,
     required String noteTimeStamp,
+    String? noteLeadOnText,
   }) = _NoteDto;
 
   const NoteDto._();
@@ -23,6 +24,7 @@ abstract class NoteDto implements _$NoteDto {
     return NoteDto(
         id: note.id.getOrCrash(),
         noteBody: note.noteBody.getOrCrash(),
+        noteLeadOnText: note.noteLeadOnText!.getOrCrash(),
         noteTimeStamp: FieldValue.serverTimestamp().toString());
   }
 
@@ -31,6 +33,7 @@ abstract class NoteDto implements _$NoteDto {
       id: UniqueID.fromUniqueString(id!),
       noteTimeStamp: NoteTimeStamp(noteTimeStamp),
       noteBody: NoteBody(noteBody),
+      noteLeadOnText: NoteLeadOnText(noteLeadOnText!),
     );
   }
 

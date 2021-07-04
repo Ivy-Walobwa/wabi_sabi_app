@@ -19,10 +19,12 @@ class _$NoteTearOff {
   _Note call(
       {required UniqueID id,
       required NoteBody noteBody,
+      NoteLeadOnText? noteLeadOnText,
       required NoteTimeStamp noteTimeStamp}) {
     return _Note(
       id: id,
       noteBody: noteBody,
+      noteLeadOnText: noteLeadOnText,
       noteTimeStamp: noteTimeStamp,
     );
   }
@@ -35,6 +37,7 @@ const $Note = _$NoteTearOff();
 mixin _$Note {
   UniqueID get id => throw _privateConstructorUsedError;
   NoteBody get noteBody => throw _privateConstructorUsedError;
+  NoteLeadOnText? get noteLeadOnText => throw _privateConstructorUsedError;
   NoteTimeStamp get noteTimeStamp => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -45,7 +48,11 @@ mixin _$Note {
 abstract class $NoteCopyWith<$Res> {
   factory $NoteCopyWith(Note value, $Res Function(Note) then) =
       _$NoteCopyWithImpl<$Res>;
-  $Res call({UniqueID id, NoteBody noteBody, NoteTimeStamp noteTimeStamp});
+  $Res call(
+      {UniqueID id,
+      NoteBody noteBody,
+      NoteLeadOnText? noteLeadOnText,
+      NoteTimeStamp noteTimeStamp});
 }
 
 /// @nodoc
@@ -60,6 +67,7 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? noteBody = freezed,
+    Object? noteLeadOnText = freezed,
     Object? noteTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,6 +79,10 @@ class _$NoteCopyWithImpl<$Res> implements $NoteCopyWith<$Res> {
           ? _value.noteBody
           : noteBody // ignore: cast_nullable_to_non_nullable
               as NoteBody,
+      noteLeadOnText: noteLeadOnText == freezed
+          ? _value.noteLeadOnText
+          : noteLeadOnText // ignore: cast_nullable_to_non_nullable
+              as NoteLeadOnText?,
       noteTimeStamp: noteTimeStamp == freezed
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
@@ -84,7 +96,11 @@ abstract class _$NoteCopyWith<$Res> implements $NoteCopyWith<$Res> {
   factory _$NoteCopyWith(_Note value, $Res Function(_Note) then) =
       __$NoteCopyWithImpl<$Res>;
   @override
-  $Res call({UniqueID id, NoteBody noteBody, NoteTimeStamp noteTimeStamp});
+  $Res call(
+      {UniqueID id,
+      NoteBody noteBody,
+      NoteLeadOnText? noteLeadOnText,
+      NoteTimeStamp noteTimeStamp});
 }
 
 /// @nodoc
@@ -100,6 +116,7 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? noteBody = freezed,
+    Object? noteLeadOnText = freezed,
     Object? noteTimeStamp = freezed,
   }) {
     return _then(_Note(
@@ -111,6 +128,10 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
           ? _value.noteBody
           : noteBody // ignore: cast_nullable_to_non_nullable
               as NoteBody,
+      noteLeadOnText: noteLeadOnText == freezed
+          ? _value.noteLeadOnText
+          : noteLeadOnText // ignore: cast_nullable_to_non_nullable
+              as NoteLeadOnText?,
       noteTimeStamp: noteTimeStamp == freezed
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
@@ -123,7 +144,10 @@ class __$NoteCopyWithImpl<$Res> extends _$NoteCopyWithImpl<$Res>
 
 class _$_Note extends _Note {
   const _$_Note(
-      {required this.id, required this.noteBody, required this.noteTimeStamp})
+      {required this.id,
+      required this.noteBody,
+      this.noteLeadOnText,
+      required this.noteTimeStamp})
       : super._();
 
   @override
@@ -131,11 +155,13 @@ class _$_Note extends _Note {
   @override
   final NoteBody noteBody;
   @override
+  final NoteLeadOnText? noteLeadOnText;
+  @override
   final NoteTimeStamp noteTimeStamp;
 
   @override
   String toString() {
-    return 'Note(id: $id, noteBody: $noteBody, noteTimeStamp: $noteTimeStamp)';
+    return 'Note(id: $id, noteBody: $noteBody, noteLeadOnText: $noteLeadOnText, noteTimeStamp: $noteTimeStamp)';
   }
 
   @override
@@ -147,6 +173,9 @@ class _$_Note extends _Note {
             (identical(other.noteBody, noteBody) ||
                 const DeepCollectionEquality()
                     .equals(other.noteBody, noteBody)) &&
+            (identical(other.noteLeadOnText, noteLeadOnText) ||
+                const DeepCollectionEquality()
+                    .equals(other.noteLeadOnText, noteLeadOnText)) &&
             (identical(other.noteTimeStamp, noteTimeStamp) ||
                 const DeepCollectionEquality()
                     .equals(other.noteTimeStamp, noteTimeStamp)));
@@ -157,6 +186,7 @@ class _$_Note extends _Note {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(noteBody) ^
+      const DeepCollectionEquality().hash(noteLeadOnText) ^
       const DeepCollectionEquality().hash(noteTimeStamp);
 
   @JsonKey(ignore: true)
@@ -169,6 +199,7 @@ abstract class _Note extends Note {
   const factory _Note(
       {required UniqueID id,
       required NoteBody noteBody,
+      NoteLeadOnText? noteLeadOnText,
       required NoteTimeStamp noteTimeStamp}) = _$_Note;
   const _Note._() : super._();
 
@@ -176,6 +207,8 @@ abstract class _Note extends Note {
   UniqueID get id => throw _privateConstructorUsedError;
   @override
   NoteBody get noteBody => throw _privateConstructorUsedError;
+  @override
+  NoteLeadOnText? get noteLeadOnText => throw _privateConstructorUsedError;
   @override
   NoteTimeStamp get noteTimeStamp => throw _privateConstructorUsedError;
   @override

@@ -17,6 +17,18 @@ class NoteBody extends ValueObject<String>{
 
 }
 
+class NoteLeadOnText extends ValueObject<String>{
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+   factory NoteLeadOnText(String input){
+     return NoteLeadOnText._(validateStringNotEmpty(input));
+   }
+
+  const NoteLeadOnText._(this.value);
+
+}
+
 class NoteTimeStamp extends ValueObject<String>{
   @override
   final Either<ValueFailure<String>, String> value;

@@ -34,7 +34,7 @@ class SignInFormWidget extends StatelessWidget {
                                         'Invalid Email and Password Combination')),
                           )
                         }, (_) {
-              AutoRouter.of(context).navigate(const NotesOverViewRoute());
+              AutoRouter.of(context).navigate(const TabView());
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());

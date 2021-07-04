@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // app colors
 const Color kdarkerPinkColor = Color(0xffEEB9D9);
 const Color klightPinkColor = Color(0xffFAD7EC);
+const Color klighterPinkColor = Color(0xfffdf0f8);
 const Color kpurpleColor = Color(0xff6741D9);
 
 

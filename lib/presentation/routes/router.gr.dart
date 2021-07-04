@@ -25,10 +25,10 @@ class WabiRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i3.SignInPage();
         }),
-    NotesOverViewRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    TabView.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i3.NotesOverViewPage();
+          return _i3.TabView();
         })
   };
 
@@ -36,7 +36,7 @@ class WabiRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashRoute.name, path: '/'),
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
-        _i1.RouteConfig(NotesOverViewRoute.name, path: '/notes-over-view-page')
+        _i1.RouteConfig(TabView.name, path: '/tab-view')
       ];
 }
 
@@ -52,8 +52,8 @@ class SignInRoute extends _i1.PageRouteInfo {
   static const String name = 'SignInRoute';
 }
 
-class NotesOverViewRoute extends _i1.PageRouteInfo {
-  const NotesOverViewRoute() : super(name, path: '/notes-over-view-page');
+class TabView extends _i1.PageRouteInfo {
+  const TabView() : super(name, path: '/tab-view');
 
-  static const String name = 'NotesOverViewRoute';
+  static const String name = 'TabView';
 }

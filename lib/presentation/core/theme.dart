@@ -58,4 +58,5 @@ final ThemeData appTheme = ThemeData(
       borderSide: BorderSide(color: klightPinkColor, width: 0.0),
     ),
   ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: kpurpleColor, foregroundColor: klighterPinkColor,elevation: 20),
 );

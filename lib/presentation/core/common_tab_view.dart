@@ -39,13 +39,22 @@ class _TabViewState extends State<TabView> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        child: Container(
+        width: 60,
+        height: 60,
+        decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(colors: [  kdarkerPinkColor, kpurpleColor])
+        ),
         child: const Icon(
           Icons.add,
+          size: 40,
         ),
+      ),
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 50,
-        color: klightPinkColor,
+        color: klighterPinkColor,
         notchMargin: 6.0,
         shape: const CircularNotchedRectangle(),
         child: SizedBox(

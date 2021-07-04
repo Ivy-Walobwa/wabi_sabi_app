@@ -145,7 +145,7 @@ class SignInFormWidget extends StatelessWidget {
                       children: [
                         const Expanded(
                             child: Divider(
-                              color: klightPinkColor,
+                              color: klightPinkColor1,
                             )),
                         khorizontalSpaceBetweenWidgets,
                         Text(
@@ -158,7 +158,7 @@ class SignInFormWidget extends StatelessWidget {
                         khorizontalSpaceBetweenWidgets,
                         const Expanded(
                             child: Divider(
-                              color: klightPinkColor,
+                              color: klightPinkColor1,
                             )),
                       ],
                     ),

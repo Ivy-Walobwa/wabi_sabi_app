@@ -14,7 +14,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: klightPinkColor,
+          backgroundColor: klightPinkColor1,
           primary: kpurpleColor,
           padding: const EdgeInsets.all(16),
         ),

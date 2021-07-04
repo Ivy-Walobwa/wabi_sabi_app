@@ -33,14 +33,14 @@ class SplashPage extends StatelessWidget {
               top: height*0.1,
                  left: width*0.1,
                 child: const CircleAvatar(
-              backgroundColor: klightPinkColor,
+              backgroundColor: klightPinkColor1,
             )),
              Positioned(
               bottom: height*0.4,
                  right: width*0.2,
                 child: const CircleAvatar(
                   radius: 10,
-              backgroundColor: klightPinkColor,
+              backgroundColor: klightPinkColor1,
             )),
 
             Align(
@@ -59,7 +59,7 @@ class SplashPage extends StatelessWidget {
                 clipper: TopRightClipperUp(),
                 child: Container(
                   width: width * 0.98,
-                  color: klightPinkColor,
+                  color: klightPinkColor1,
                 ),
               ),
             ),
@@ -100,7 +100,7 @@ class SplashPage extends StatelessWidget {
                 clipper: BottomLeftClipperUp(),
                 child: Container(
                   height: height * 0.99,
-                  color: klightPinkColor,
+                  color: klightPinkColor1,
                 ),
               ),
             ),

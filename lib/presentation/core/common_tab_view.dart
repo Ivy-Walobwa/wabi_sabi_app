@@ -35,7 +35,7 @@ class _TabViewState extends State<TabView> {
 
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: klighterPinkColor,
+      backgroundColor: klightPinkColor2,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -54,7 +54,7 @@ class _TabViewState extends State<TabView> {
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 50,
-        color: klighterPinkColor,
+        color: klightPinkColor2,
         notchMargin: 6.0,
         shape: const CircularNotchedRectangle(),
         child: SizedBox(

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,8 +6,11 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:wabi_sabi_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+
+import '../../../application/auth/auth_bloc.dart';
+import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../core/constants.dart';
+import '../../routes/router.gr.dart';
 import '../widgets/custom_text_button.dart';
 
 class SignInFormWidget extends StatelessWidget {
@@ -30,8 +34,12 @@ class SignInFormWidget extends StatelessWidget {
                                         'Invalid Email and Password Combination')),
                           )
                         }, (_) {
-                  // TODO: NAVIGATION
-                }));
+              AutoRouter.of(context).navigate(const NotesOverViewRoute());
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEvent.authCheckRequested());
+
+            }));
       },
       builder: (context, state) {
         return Padding(

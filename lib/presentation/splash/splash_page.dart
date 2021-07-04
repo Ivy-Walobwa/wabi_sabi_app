@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wabi_sabi_app/presentation/routes/router.gr.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../core/constants.dart';
+import '../routes/router.gr.dart';
 
 import 'clippers/clippers.dart';
 
@@ -18,7 +18,8 @@ class SplashPage extends StatelessWidget {
         state.map(initial: (_){
 
         }, authenticated: (_){
-// TODO: IMPLEMENT Authenticated
+          AutoRouter.of(context).navigate(const NotesOverViewRoute());
+
         }, unauthenticated: (_){
           AutoRouter.of(context).navigate(const SignInRoute());
 

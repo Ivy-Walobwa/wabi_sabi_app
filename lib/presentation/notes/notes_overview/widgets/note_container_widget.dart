@@ -40,7 +40,7 @@ class NoteContainerWidget extends StatelessWidget {
                 ),
                 kverticalSpaceBetweenWidgets,
                 // TODO: Add actaul time from db
-                Text('14:47'),
+                const Text('14:47'),
               ],
             ),
           ),

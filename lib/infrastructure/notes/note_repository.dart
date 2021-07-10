@@ -11,12 +11,12 @@ import 'note_dtos.dart';
 
 @LazySingleton(as: NoteRepositoryInterface)
 class NoteRepository implements NoteRepositoryInterface {
-  late final FirebaseFirestore _firestore;
+   final FirebaseFirestore _firestore ;
+   NoteRepository(this._firestore);
 
   @override
   Stream<Either<NoteFailure, KtList<Note>>> watchAll() async* {
     final userDoc = await _firestore.userDocument();
-
     yield* userDoc.noteCollection
         .orderBy('noteTimeStamp', descending: true)
         .snapshots()

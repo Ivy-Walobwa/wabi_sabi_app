@@ -5,7 +5,6 @@ import 'package:wabi_sabi_app/injection.dart';
 
 import '../presentation.dart';
 import 'constants.dart';
-import '../../application/notes/note_watcher/note_watcher_bloc.dart';
 
 class TabView extends StatefulWidget {
   final List<Widget> _pages = [
@@ -40,9 +39,6 @@ class _TabViewState extends State<TabView> {
     final height = MediaQuery.of(context).size.height;
     return MultiBlocProvider(
       providers: [
-        BlocProvider<NoteWatcherBloc>(
-            create: (context) => getIt<NoteWatcherBloc>()
-              ..add(const NoteWatcherEvent.watchAllStarted())),
         BlocProvider<NoteActorBloc>(
           create: (context) => getIt<NoteActorBloc>(),
         )

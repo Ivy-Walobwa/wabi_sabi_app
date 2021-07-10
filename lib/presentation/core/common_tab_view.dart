@@ -8,7 +8,7 @@ class TabView extends StatefulWidget {
     NotesOverViewPage(),
     Container(),
     Container(),
-    Container(),
+    UserProfilePage(),
   ];
 
   @override
@@ -38,17 +38,20 @@ class _TabViewState extends State<TabView> {
       backgroundColor: klightPinkColor2,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+
+        },
         child: Container(
         width: 60,
         height: 60,
         decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            gradient: LinearGradient(colors: [  kdarkerPinkColor, kpurpleColor])
+          color: kpurpleColor
         ),
         child: const Icon(
           Icons.add,
           size: 40,
+          color: klightPinkColor3,
         ),
       ),
       ),

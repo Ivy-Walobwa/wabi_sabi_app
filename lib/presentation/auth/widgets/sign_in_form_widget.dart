@@ -10,7 +10,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../core/constants.dart';
-fiximport '../../core/widgets/custom_text_button.dart';
+import '../../core/widgets/custom_text_button.dart';
 import '../../routes/router.gr.dart';
 
 class SignInFormWidget extends StatelessWidget {

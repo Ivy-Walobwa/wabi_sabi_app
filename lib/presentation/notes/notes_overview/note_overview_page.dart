@@ -30,7 +30,8 @@ class NotesOverViewPage extends StatelessWidget {
                       .copyWith(color: kpurpleColor)),
               kverticalSpaceBetweenWidgets,
               kverticalSpaceBetweenWidgets,
-              ...List.generate(5, (index) => NoteContainerWidget()),
+              // TODO: sliding init Listview??
+              ...List.generate(5, (index) => const NoteContainerWidget()),
             ],
           ),
         ),

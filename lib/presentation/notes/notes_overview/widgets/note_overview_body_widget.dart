@@ -18,6 +18,8 @@ class NoteOverViewBodyWidget extends StatelessWidget {
           loadSuccess: (successState) {
             // TODO: sliding init Listview??
             return ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 final note = successState.notes[index];
                 if (note.failureOption.isSome()) {

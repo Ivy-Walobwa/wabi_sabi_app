@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../../../domain/notes/note.dart';
 import '../../../core/constants.dart';
 
 class NoteContainerWidget extends StatelessWidget {
+  final Note note;
   const NoteContainerWidget({
+    required this.note,
     Key? key,
   }) : super(key: key);
 
@@ -31,16 +35,14 @@ class NoteContainerWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:  [
-                // TODO: Add actaul note from db
                 Text(
-                  "OMG!!!! Did he do that to me.I'm about to scream,OMG!!!! Did he do that to me.I'm about to scream,",
+                  note.noteBody.getOrCrash(),
                   style: Theme.of(context).textTheme.headline2!.copyWith(color: Colors.black),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 kverticalSpaceBetweenWidgets,
-                // TODO: Add actaul time from db
-                const Text('14:47'),
+                 Text(dateTimeToHourMinute(note.noteTimeStamp.getOrCrash())),
               ],
             ),
           ),
@@ -49,5 +51,10 @@ class NoteContainerWidget extends StatelessWidget {
       ],
     );
   }
-}
+
+  String dateTimeToHourMinute(String date) {
+   final DateFormat dateFormat = DateFormat.Hm();
+   final DateTime dateTime = DateTime.parse(date);
+    return dateFormat.format(dateTime);
+  }}
 

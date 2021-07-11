@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/notes/note_watcher/note_watcher_bloc.dart';
+import 'note_container_widget.dart';
 
 class NoteOverViewBodyWidget extends StatelessWidget {
   @override
@@ -27,11 +28,7 @@ class NoteOverViewBodyWidget extends StatelessWidget {
                   return Container(
                     color: Colors.red, height: 100, width: 100,);
                 } else {
-                  return Container(
-                    color: Colors.green,
-                    height: 100,
-                    width: 100,
-                  );
+                  return NoteContainerWidget(note: note);
                 }
               },
               itemCount: successState.notes.size,

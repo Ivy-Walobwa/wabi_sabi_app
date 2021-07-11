@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../../../domain/notes/note.dart';
 import '../../../core/constants.dart';
+import '../../note_form/note_form_page.dart';
 
 class NoteContainerWidget extends StatelessWidget {
   final Note note;
@@ -17,9 +20,20 @@ class NoteContainerWidget extends StatelessWidget {
     return Column(
       children: [
         InkWell(
-          onTap: (){
-            // TODO: Navigate to note detail
-            print('tapped');
+          onTap: () {
+            showMaterialModalBottomSheet(
+              backgroundColor: klightPinkColor2,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30),
+                ),
+              ),
+              context: context,
+              builder: (context) => NoteFormPage(
+                editedNote: note,
+              ),
+            );
           },
           child: Dismissible(
             key: Key(note.id.getOrCrash()),

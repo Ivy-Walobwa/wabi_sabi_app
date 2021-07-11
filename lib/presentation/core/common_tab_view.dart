@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wabi_sabi_app/application/notes/note_actor/note_actor_bloc.dart';
-import 'package:wabi_sabi_app/injection.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
+import '../../application/notes/note_actor/note_actor_bloc.dart';
+import '../../injection.dart';
+import '../notes/note_form/note_form_page.dart';
 import '../presentation.dart';
 import 'constants.dart';
 
@@ -48,8 +50,17 @@ class _TabViewState extends State<TabView> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // TODO: Navigate to note form
-          },
+            showMaterialModalBottomSheet(
+              backgroundColor: klightPinkColor2,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30),
+                ),
+              ),
+              context: context,
+              builder: (context) =>  const NoteFormPage(editedNote: null,),
+            );          },
           child: Container(
             width: 60,
             height: 60,

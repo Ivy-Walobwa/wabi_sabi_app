@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'Wabi Sabi',
         theme: appTheme,
         routeInformationParser: _appRouter.defaultRouteParser(),

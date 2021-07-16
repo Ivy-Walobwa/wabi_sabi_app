@@ -51,7 +51,7 @@ class _TabViewState extends State<TabView> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showMaterialModalBottomSheet(
-              backgroundColor: klightPinkColor2,
+              backgroundColor: klightPurpleColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30),

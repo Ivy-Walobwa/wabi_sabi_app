@@ -28,7 +28,6 @@ abstract class Note implements _$Note {
 
   Option<ValueFailure<dynamic>> get failureOption {
     return noteBody.value
-        .andThen(noteTimeStamp.value).andThen(noteLeadOnText!.value)
         .fold((f) => some(f), (_) => none(),);
   }
 }

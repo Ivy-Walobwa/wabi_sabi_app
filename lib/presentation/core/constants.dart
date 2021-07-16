@@ -6,6 +6,8 @@ const Color klightPinkColor1 = Color(0xffFAD7EC);
 const Color klightPinkColor2= Color(0xfffdfafc);
 const Color klightPinkColor3 = Color(0xfffefbfc);
 const Color kpurpleColor = Color(0xff6741D9);
+const Color klightPurpleColor = Color(0xffeae5f9);
+
 
 
 // Texts

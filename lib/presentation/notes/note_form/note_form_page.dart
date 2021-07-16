@@ -7,8 +7,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../application/notes/note_form/note_form_bloc.dart';
 import '../../../domain/notes/note.dart';
 import '../../../injection.dart';
-import 'widgets/edit_note_form_widget.dart';
-import 'widgets/new_note_form_widget.dart';
+import 'widgets/widgets.dart';
 
 class NoteFormPage extends StatelessWidget {
   final Note? editedNote;

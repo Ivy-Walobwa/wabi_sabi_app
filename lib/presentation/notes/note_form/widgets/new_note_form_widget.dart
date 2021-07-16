@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,8 +7,6 @@ import '../../../core/constants.dart';
 import 'widgets.dart';
 
 class NewNoteFormWidget extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -17,10 +14,9 @@ class NewNoteFormWidget extends StatelessWidget {
     return SizedBox(
       height: height * 0.96,
       child: BlocBuilder<NoteFormBloc, NoteFormState>(
-        builder: (context, state)
-        {
+        builder: (context, state) {
           final leadOnText = state.note.noteLeadOnText!.getOrCrash();
-         return Form(
+          return Form(
             autovalidateMode: state.showError
                 ? AutovalidateMode.always
                 : AutovalidateMode.disabled,
@@ -32,29 +28,7 @@ class NewNoteFormWidget extends StatelessWidget {
                   padding: const EdgeInsets.all(kappPadding),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const SizedBox(),
-                          Text(
-                            'New Note',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline2!
-                                .copyWith(color: Colors.black),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              AutoRouter.of(context).pop();
-                            },
-                            child: const Icon(
-                              Icons.close,
-                              color: Colors.black26,
-                              size: 30,
-                            ),
-                          )
-                        ],
-                      ),
+                      const TopFormRowWidget( text: 'New Note',),
                       kverticalSpaceBetweenWidgets,
                       kverticalSpaceBetweenWidgets,
                       const LeadOnTextView(),
@@ -83,7 +57,9 @@ class NewNoteFormWidget extends StatelessWidget {
                             borderSide: BorderSide(color: klightPinkColor2),
                           ),
                         ),
-                        onChanged: (value) => context.read<NoteFormBloc>().add(NoteFormEvent.noteBodyChanged(value)),
+                        onChanged: (value) => context
+                            .read<NoteFormBloc>()
+                            .add(NoteFormEvent.noteBodyChanged(value)),
                         validator: (_) => context
                             .read<NoteFormBloc>()
                             .state
@@ -102,15 +78,17 @@ class NewNoteFormWidget extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: state.isBodyChanged ? () {
-                    context
-                        .read<NoteFormBloc>()
-                        .add(const NoteFormEvent.saved());
-                  }: null,
+                  onTap: state.isBodyChanged
+                      ? () {
+                          context
+                              .read<NoteFormBloc>()
+                              .add(const NoteFormEvent.saved());
+                        }
+                      : null,
                   child: Container(
                     padding: const EdgeInsets.all(kappPadding * 1.4),
-                    decoration:  BoxDecoration(
-                      color: state.isBodyChanged? kpurpleColor : Colors.grey,
+                    decoration: BoxDecoration(
+                      color: state.isBodyChanged ? kpurpleColor : Colors.grey,
                       borderRadius:
                           const BorderRadius.only(topLeft: Radius.circular(10)),
                     ),

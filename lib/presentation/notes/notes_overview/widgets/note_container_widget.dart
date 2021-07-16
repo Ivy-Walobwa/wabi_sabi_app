@@ -6,6 +6,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../../domain/notes/note.dart';
 import '../../../core/constants.dart';
 import '../../note_form/note_form_page.dart';
+import 'delete_alert_dialog_widget.dart';
 
 class NoteContainerWidget extends StatelessWidget {
   final Note note;
@@ -39,12 +40,11 @@ class NoteContainerWidget extends StatelessWidget {
             key: Key(note.id.getOrCrash()),
             direction: DismissDirection.endToStart,
             confirmDismiss: (DismissDirection direction) async {
-              // TODO: Implement delete alert dialog
-              print('delete');
-            },
-            onDismissed: (DismissDirection direction) {
-              // TODO: Implement delete
-              print('delete');
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return DeleteAlertDialogWidget(note: note);
+                  });
             },
             background: Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -102,3 +102,4 @@ class NoteContainerWidget extends StatelessWidget {
     return dateFormat.format(dateTime);
   }
 }
+

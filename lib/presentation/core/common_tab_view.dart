@@ -39,64 +39,57 @@ class _TabViewState extends State<TabView> {
     ];
 
     final height = MediaQuery.of(context).size.height;
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<NoteActorBloc>(
-          create: (context) => getIt<NoteActorBloc>(),
-        )
-      ],
-      child: Scaffold(
-        backgroundColor: klightPinkColor2,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showMaterialModalBottomSheet(
-              backgroundColor: klightPurpleColor,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(30),
-                  topLeft: Radius.circular(30),
-                ),
+    return Scaffold(
+      backgroundColor: klightPinkColor2,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showMaterialModalBottomSheet(
+            backgroundColor: klightPurpleColor,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(30),
               ),
-              context: context,
-              builder: (context) =>  const NoteFormPage(editedNote: null,),
-            );          },
-          child: Container(
-            width: 60,
-            height: 60,
-            decoration: const BoxDecoration(
-                shape: BoxShape.circle, color: kpurpleColor),
-            child: const Icon(
-              Icons.add,
-              size: 40,
-              color: klightPinkColor3,
             ),
+            context: context,
+            builder: (context) =>  const NoteFormPage(editedNote: null,),
+          );          },
+        child: Container(
+          width: 60,
+          height: 60,
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle, color: kpurpleColor),
+          child: const Icon(
+            Icons.add,
+            size: 40,
+            color: klightPinkColor3,
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          elevation: 50,
-          color: klightPinkColor2,
-          notchMargin: 6.0,
-          shape: const CircularNotchedRectangle(),
-          child: SizedBox(
-            height: height * 0.07,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: List.generate(icons.length, (index) {
-                  return buildTabIcon(
-                    icon: icons[index],
-                    onTap: () {
-                      _selectPage(index);
-                    },
-                    color: _selectedPageIndex == index
-                        ? kpurpleColor
-                        : Colors.black26,
-                  );
-                })),
-          ),
-        ),
-        body: SafeArea(child: widget._pages[_selectedPageIndex]),
       ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 50,
+        color: klightPinkColor2,
+        notchMargin: 6.0,
+        shape: const CircularNotchedRectangle(),
+        child: SizedBox(
+          height: height * 0.07,
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: List.generate(icons.length, (index) {
+                return buildTabIcon(
+                  icon: icons[index],
+                  onTap: () {
+                    _selectPage(index);
+                  },
+                  color: _selectedPageIndex == index
+                      ? kpurpleColor
+                      : Colors.black26,
+                );
+              })),
+        ),
+      ),
+      body: SafeArea(child: widget._pages[_selectedPageIndex]),
     );
   }
 }

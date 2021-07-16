@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
+import '../../application/notes/note_actor/note_actor_bloc.dart';
 import '../../injection.dart';
 import '../routes/router.gr.dart';
 import 'theme.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (BuildContext context) =>
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+        ),
+        BlocProvider<NoteActorBloc>(
+          create: (context) => getIt<NoteActorBloc>(),
         )
       ],
       child: MaterialApp.router(

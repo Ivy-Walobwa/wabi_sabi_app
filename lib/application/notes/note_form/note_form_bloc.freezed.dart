@@ -34,10 +34,8 @@ class _$NoteFormEventTearOff {
     );
   }
 
-  _Saved saved(String bodyText) {
-    return _Saved(
-      bodyText,
-    );
+  _Saved saved() {
+    return const _Saved();
   }
 }
 
@@ -51,7 +49,7 @@ mixin _$NoteFormEvent {
     required TResult Function(Note? initialNote) initialized,
     required TResult Function(String noteLeadingText) noteLeadOnTextChanged,
     required TResult Function(String bodyText) noteBodyChanged,
-    required TResult Function(String bodyText) saved,
+    required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +57,7 @@ mixin _$NoteFormEvent {
     TResult Function(Note? initialNote)? initialized,
     TResult Function(String noteLeadingText)? noteLeadOnTextChanged,
     TResult Function(String bodyText)? noteBodyChanged,
-    TResult Function(String bodyText)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -180,7 +178,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(Note? initialNote) initialized,
     required TResult Function(String noteLeadingText) noteLeadOnTextChanged,
     required TResult Function(String bodyText) noteBodyChanged,
-    required TResult Function(String bodyText) saved,
+    required TResult Function() saved,
   }) {
     return initialized(initialNote);
   }
@@ -191,7 +189,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(Note? initialNote)? initialized,
     TResult Function(String noteLeadingText)? noteLeadOnTextChanged,
     TResult Function(String bodyText)? noteBodyChanged,
-    TResult Function(String bodyText)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -306,7 +304,7 @@ class _$_LeadOnTextChanged implements _LeadOnTextChanged {
     required TResult Function(Note? initialNote) initialized,
     required TResult Function(String noteLeadingText) noteLeadOnTextChanged,
     required TResult Function(String bodyText) noteBodyChanged,
-    required TResult Function(String bodyText) saved,
+    required TResult Function() saved,
   }) {
     return noteLeadOnTextChanged(noteLeadingText);
   }
@@ -317,7 +315,7 @@ class _$_LeadOnTextChanged implements _LeadOnTextChanged {
     TResult Function(Note? initialNote)? initialized,
     TResult Function(String noteLeadingText)? noteLeadOnTextChanged,
     TResult Function(String bodyText)? noteBodyChanged,
-    TResult Function(String bodyText)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (noteLeadOnTextChanged != null) {
@@ -432,7 +430,7 @@ class _$_NoteBodyChanged implements _NoteBodyChanged {
     required TResult Function(Note? initialNote) initialized,
     required TResult Function(String noteLeadingText) noteLeadOnTextChanged,
     required TResult Function(String bodyText) noteBodyChanged,
-    required TResult Function(String bodyText) saved,
+    required TResult Function() saved,
   }) {
     return noteBodyChanged(bodyText);
   }
@@ -443,7 +441,7 @@ class _$_NoteBodyChanged implements _NoteBodyChanged {
     TResult Function(Note? initialNote)? initialized,
     TResult Function(String noteLeadingText)? noteLeadOnTextChanged,
     TResult Function(String bodyText)? noteBodyChanged,
-    TResult Function(String bodyText)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (noteBodyChanged != null) {
@@ -492,7 +490,6 @@ abstract class _NoteBodyChanged implements NoteFormEvent {
 abstract class _$SavedCopyWith<$Res> {
   factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
       __$SavedCopyWithImpl<$Res>;
-  $Res call({String bodyText});
 }
 
 /// @nodoc
@@ -503,50 +500,25 @@ class __$SavedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
 
   @override
   _Saved get _value => super._value as _Saved;
-
-  @override
-  $Res call({
-    Object? bodyText = freezed,
-  }) {
-    return _then(_Saved(
-      bodyText == freezed
-          ? _value.bodyText
-          : bodyText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Saved implements _Saved {
-  const _$_Saved(this.bodyText);
-
-  @override
-  final String bodyText;
+  const _$_Saved();
 
   @override
   String toString() {
-    return 'NoteFormEvent.saved(bodyText: $bodyText)';
+    return 'NoteFormEvent.saved()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Saved &&
-            (identical(other.bodyText, bodyText) ||
-                const DeepCollectionEquality()
-                    .equals(other.bodyText, bodyText)));
+    return identical(this, other) || (other is _Saved);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(bodyText);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SavedCopyWith<_Saved> get copyWith =>
-      __$SavedCopyWithImpl<_Saved>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -554,9 +526,9 @@ class _$_Saved implements _Saved {
     required TResult Function(Note? initialNote) initialized,
     required TResult Function(String noteLeadingText) noteLeadOnTextChanged,
     required TResult Function(String bodyText) noteBodyChanged,
-    required TResult Function(String bodyText) saved,
+    required TResult Function() saved,
   }) {
-    return saved(bodyText);
+    return saved();
   }
 
   @override
@@ -565,11 +537,11 @@ class _$_Saved implements _Saved {
     TResult Function(Note? initialNote)? initialized,
     TResult Function(String noteLeadingText)? noteLeadOnTextChanged,
     TResult Function(String bodyText)? noteBodyChanged,
-    TResult Function(String bodyText)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
-      return saved(bodyText);
+      return saved();
     }
     return orElse();
   }
@@ -602,11 +574,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements NoteFormEvent {
-  const factory _Saved(String bodyText) = _$_Saved;
-
-  String get bodyText => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SavedCopyWith<_Saved> get copyWith => throw _privateConstructorUsedError;
+  const factory _Saved() = _$_Saved;
 }
 
 /// @nodoc
@@ -618,12 +586,14 @@ class _$NoteFormStateTearOff {
       required bool showError,
       required bool isEditing,
       required bool isSaving,
+      required bool isBodyChanged,
       required Option<Either<NoteFailure, Unit>> saveFailureOrSuccess}) {
     return _NoteFormState(
       note: note,
       showError: showError,
       isEditing: isEditing,
       isSaving: isSaving,
+      isBodyChanged: isBodyChanged,
       saveFailureOrSuccess: saveFailureOrSuccess,
     );
   }
@@ -638,6 +608,7 @@ mixin _$NoteFormState {
   bool get showError => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get isBodyChanged => throw _privateConstructorUsedError;
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
@@ -656,6 +627,7 @@ abstract class $NoteFormStateCopyWith<$Res> {
       bool showError,
       bool isEditing,
       bool isSaving,
+      bool isBodyChanged,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccess});
 
   $NoteCopyWith<$Res> get note;
@@ -676,6 +648,7 @@ class _$NoteFormStateCopyWithImpl<$Res>
     Object? showError = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
+    Object? isBodyChanged = freezed,
     Object? saveFailureOrSuccess = freezed,
   }) {
     return _then(_value.copyWith(
@@ -694,6 +667,10 @@ class _$NoteFormStateCopyWithImpl<$Res>
       isSaving: isSaving == freezed
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isBodyChanged: isBodyChanged == freezed
+          ? _value.isBodyChanged
+          : isBodyChanged // ignore: cast_nullable_to_non_nullable
               as bool,
       saveFailureOrSuccess: saveFailureOrSuccess == freezed
           ? _value.saveFailureOrSuccess
@@ -722,6 +699,7 @@ abstract class _$NoteFormStateCopyWith<$Res>
       bool showError,
       bool isEditing,
       bool isSaving,
+      bool isBodyChanged,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccess});
 
   @override
@@ -745,6 +723,7 @@ class __$NoteFormStateCopyWithImpl<$Res>
     Object? showError = freezed,
     Object? isEditing = freezed,
     Object? isSaving = freezed,
+    Object? isBodyChanged = freezed,
     Object? saveFailureOrSuccess = freezed,
   }) {
     return _then(_NoteFormState(
@@ -764,6 +743,10 @@ class __$NoteFormStateCopyWithImpl<$Res>
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
               as bool,
+      isBodyChanged: isBodyChanged == freezed
+          ? _value.isBodyChanged
+          : isBodyChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
       saveFailureOrSuccess: saveFailureOrSuccess == freezed
           ? _value.saveFailureOrSuccess
           : saveFailureOrSuccess // ignore: cast_nullable_to_non_nullable
@@ -780,6 +763,7 @@ class _$_NoteFormState implements _NoteFormState {
       required this.showError,
       required this.isEditing,
       required this.isSaving,
+      required this.isBodyChanged,
       required this.saveFailureOrSuccess});
 
   @override
@@ -791,11 +775,13 @@ class _$_NoteFormState implements _NoteFormState {
   @override
   final bool isSaving;
   @override
+  final bool isBodyChanged;
+  @override
   final Option<Either<NoteFailure, Unit>> saveFailureOrSuccess;
 
   @override
   String toString() {
-    return 'NoteFormState(note: $note, showError: $showError, isEditing: $isEditing, isSaving: $isSaving, saveFailureOrSuccess: $saveFailureOrSuccess)';
+    return 'NoteFormState(note: $note, showError: $showError, isEditing: $isEditing, isSaving: $isSaving, isBodyChanged: $isBodyChanged, saveFailureOrSuccess: $saveFailureOrSuccess)';
   }
 
   @override
@@ -813,6 +799,9 @@ class _$_NoteFormState implements _NoteFormState {
             (identical(other.isSaving, isSaving) ||
                 const DeepCollectionEquality()
                     .equals(other.isSaving, isSaving)) &&
+            (identical(other.isBodyChanged, isBodyChanged) ||
+                const DeepCollectionEquality()
+                    .equals(other.isBodyChanged, isBodyChanged)) &&
             (identical(other.saveFailureOrSuccess, saveFailureOrSuccess) ||
                 const DeepCollectionEquality()
                     .equals(other.saveFailureOrSuccess, saveFailureOrSuccess)));
@@ -825,6 +814,7 @@ class _$_NoteFormState implements _NoteFormState {
       const DeepCollectionEquality().hash(showError) ^
       const DeepCollectionEquality().hash(isEditing) ^
       const DeepCollectionEquality().hash(isSaving) ^
+      const DeepCollectionEquality().hash(isBodyChanged) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccess);
 
   @JsonKey(ignore: true)
@@ -839,6 +829,7 @@ abstract class _NoteFormState implements NoteFormState {
           required bool showError,
           required bool isEditing,
           required bool isSaving,
+          required bool isBodyChanged,
           required Option<Either<NoteFailure, Unit>> saveFailureOrSuccess}) =
       _$_NoteFormState;
 
@@ -850,6 +841,8 @@ abstract class _NoteFormState implements NoteFormState {
   bool get isEditing => throw _privateConstructorUsedError;
   @override
   bool get isSaving => throw _privateConstructorUsedError;
+  @override
+  bool get isBodyChanged => throw _privateConstructorUsedError;
   @override
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccess =>
       throw _privateConstructorUsedError;

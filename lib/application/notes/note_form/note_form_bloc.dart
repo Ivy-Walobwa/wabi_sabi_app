@@ -34,14 +34,17 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         );
       },
       noteLeadOnTextChanged: (e) async* {
-        yield state.copyWith(
-          isBodyChanged: false,
-          note: state.note.copyWith(
-            noteLeadOnText: NoteLeadOnText(e.noteLeadingText),
+        if(state.note.noteLeadOnText != NoteLeadOnText(e.noteLeadingText)){
+          yield state.copyWith(
+            isBodyChanged: false,
+            note: state.note.copyWith(
+              noteLeadOnText: NoteLeadOnText(e.noteLeadingText),
 
-          ),
-          saveFailureOrSuccess: none(),
-        );
+            ),
+            saveFailureOrSuccess: none(),
+          );
+        }
+
       },
       noteBodyChanged: (e) async* {
         yield state.copyWith(

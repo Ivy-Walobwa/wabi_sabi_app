@@ -29,7 +29,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         yield e.initialNote == null
             ? state
             : state.copyWith(
-          note: state.note,
+          note: e.initialNote!,
           isEditing: true,
         );
       },

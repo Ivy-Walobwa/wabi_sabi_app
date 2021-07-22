@@ -43,7 +43,7 @@ class NewNoteFormWidget extends StatelessWidget {
                             .copyWith(color: Colors.black),
                         initialValue: leadOnText,
                         cursorColor: kpurpleColor,
-                        minLines: 20,
+                        minLines: (height*0.015).toInt(),
                         maxLines: null,
                         maxLength: NoteBody.maxLength,
                         decoration: const InputDecoration(

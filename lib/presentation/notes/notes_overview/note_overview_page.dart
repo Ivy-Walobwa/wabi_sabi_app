@@ -41,7 +41,7 @@ class NotesOverViewPage extends StatelessWidget {
                   // TODO: Populate greeting according to time of day
 
                   Text(
-                    'Good Morning,',
+                    greeting(),
                     style: Theme.of(context)
                         .textTheme
                         .headline1!
@@ -63,5 +63,16 @@ class NotesOverViewPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String greeting() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    }
+    if (hour < 17) {
+      return 'Good Afternoon';
+    }
+    return 'Good Evening';
   }
 }

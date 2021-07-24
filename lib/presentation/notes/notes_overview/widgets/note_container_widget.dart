@@ -23,7 +23,7 @@ class NoteContainerWidget extends StatelessWidget {
         InkWell(
           onTap: () {
             showMaterialModalBottomSheet(
-              backgroundColor: klightPinkColor2,
+              backgroundColor: klightPurpleColor,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30),

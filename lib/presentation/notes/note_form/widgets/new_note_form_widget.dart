@@ -10,8 +10,6 @@ class NewNoteFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-
-    // TODO: Implement isSaving overlay + spinner
     return SizedBox(
       height: height * 0.96,
       child: BlocBuilder<NoteFormBloc, NoteFormState>(

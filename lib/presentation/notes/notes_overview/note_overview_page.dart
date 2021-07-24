@@ -38,8 +38,6 @@ class NotesOverViewPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // TODO: Populate greeting according to time of day
-
                   Text(
                     greeting(),
                     style: Theme.of(context)
@@ -47,12 +45,7 @@ class NotesOverViewPage extends StatelessWidget {
                         .headline1!
                         .copyWith(color: kpurpleColor),
                   ),
-                  // TODO: Populate user actual name
-                  Text('Ives',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1!
-                          .copyWith(color: kpurpleColor)),
+                  // TODO: Populate user actual name from username db
                   kverticalSpaceBetweenWidgets,
                   kverticalSpaceBetweenWidgets,
                   NoteOverViewBodyWidget(),
@@ -75,4 +68,5 @@ class NotesOverViewPage extends StatelessWidget {
     }
     return 'Good Evening';
   }
+
 }

@@ -7,9 +7,8 @@ import '../core/value_validators.dart';
 class NoteBody extends ValueObject<String>{
   @override
   final Either<ValueFailure<String>, String> value;
-
+  static const maxLength = 1000;
    factory NoteBody(String input){
-      const maxLength = 1000;
 
      return NoteBody._(validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty));
    }
@@ -22,7 +21,7 @@ class NoteLeadOnText extends ValueObject<String>{
   final Either<ValueFailure<String>, String> value;
 
    factory NoteLeadOnText(String input){
-     return NoteLeadOnText._(validateStringNotEmpty(input));
+     return NoteLeadOnText._(right(input));
    }
 
   const NoteLeadOnText._(this.value);

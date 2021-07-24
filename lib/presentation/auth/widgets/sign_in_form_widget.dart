@@ -10,8 +10,8 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/auth/sign_in_form/sign_in_form_bloc.dart';
 import '../../core/constants.dart';
+import '../../core/widgets/custom_text_button.dart';
 import '../../routes/router.gr.dart';
-import '../widgets/custom_text_button.dart';
 
 class SignInFormWidget extends StatelessWidget {
   @override
@@ -34,7 +34,7 @@ class SignInFormWidget extends StatelessWidget {
                                         'Invalid Email and Password Combination')),
                           )
                         }, (_) {
-              AutoRouter.of(context).navigate(const NotesOverViewRoute());
+              AutoRouter.of(context).navigate(const TabView());
               context
                   .read<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
@@ -116,6 +116,8 @@ class SignInFormWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: CustomTextButton(
+                            backgroundColor: klightPinkColor1,
+                            primaryColor: kpurpleColor,
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -128,6 +130,8 @@ class SignInFormWidget extends StatelessWidget {
                         khorizontalSpaceBetweenWidgets,
                         Expanded(
                           child: CustomTextButton(
+                            backgroundColor: klightPinkColor1,
+                            primaryColor: kpurpleColor,
                             onPressed: () {
                               context.read<SignInFormBloc>().add(
                                     const SignInFormEvent
@@ -145,7 +149,7 @@ class SignInFormWidget extends StatelessWidget {
                       children: [
                         const Expanded(
                             child: Divider(
-                              color: klightPinkColor,
+                              color: klightPinkColor1,
                             )),
                         khorizontalSpaceBetweenWidgets,
                         Text(
@@ -158,7 +162,7 @@ class SignInFormWidget extends StatelessWidget {
                         khorizontalSpaceBetweenWidgets,
                         const Expanded(
                             child: Divider(
-                              color: klightPinkColor,
+                              color: klightPinkColor1,
                             )),
                       ],
                     ),

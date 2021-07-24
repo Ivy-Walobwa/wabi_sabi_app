@@ -8,9 +8,7 @@ part 'note.freezed.dart';
 
 @freezed
 abstract class Note implements _$Note {
-  const Note._();
 
-  // ignore: sort_unnamed_constructors_first
   const factory Note({
     required UniqueID id,
     required NoteBody noteBody,
@@ -18,18 +16,19 @@ abstract class Note implements _$Note {
     required NoteTimeStamp noteTimeStamp,
   }) = _Note;
 
+  const Note._();
+
 
   factory Note.empty() => Note(
       id: UniqueID(),
       noteBody: NoteBody(''),
       noteLeadOnText: NoteLeadOnText(''),
-      noteTimeStamp: NoteTimeStamp(''));
+      noteTimeStamp: NoteTimeStamp(''),);
 
 
   Option<ValueFailure<dynamic>> get failureOption {
     return noteBody.value
-        .andThen(noteTimeStamp.value).andThen(noteLeadOnText!.value)
-        .fold((f) => some(f), (_) => none());
+        .fold((f) => some(f), (_) => none(),);
   }
 }
 

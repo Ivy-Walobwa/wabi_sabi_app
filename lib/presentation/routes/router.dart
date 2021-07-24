@@ -7,7 +7,7 @@ import '../presentation.dart';
   routes: <AutoRoute>[
     AutoRoute(page: SplashPage, initial: true),
     AutoRoute(page: SignInPage),
-    AutoRoute(page: NotesOverViewPage),
+    AutoRoute(page: TabView),
   ],
 )
 class $WabiRouter {}

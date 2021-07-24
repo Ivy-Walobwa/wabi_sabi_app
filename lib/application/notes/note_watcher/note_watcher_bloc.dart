@@ -24,7 +24,7 @@ class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
 
   @override
   Stream<NoteWatcherState> mapEventToState(NoteWatcherEvent event,) async* {
-    event.map(watchAllStarted: (e) async* {
+    yield* event.map(watchAllStarted: (e) async* {
       yield const NoteWatcherState.loadInProgress();
       yield* _noteRepositoryInterface.watchAll().map(
             (failureOrNotes) =>

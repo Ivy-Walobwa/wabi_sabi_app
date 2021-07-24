@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.walobwa.wabi_sabi_app">
-   <application
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
         android:label="wabi_sabi_app"
         android:icon="@mipmap/ic_launcher" >
         <activity

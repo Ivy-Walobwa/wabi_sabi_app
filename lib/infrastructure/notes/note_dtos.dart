@@ -25,7 +25,7 @@ abstract class NoteDto implements _$NoteDto {
         id: note.id.getOrCrash(),
         noteBody: note.noteBody.getOrCrash(),
         noteLeadOnText: note.noteLeadOnText!.getOrCrash(),
-        noteTimeStamp: FieldValue.serverTimestamp().toString());
+        noteTimeStamp: DateTime.now().toString());
   }
 
   Note toDomain() {
@@ -41,6 +41,6 @@ abstract class NoteDto implements _$NoteDto {
       _$NoteDtoFromJson(json);
 
   factory NoteDto.fromFirestore(DocumentSnapshot doc){
-    return NoteDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id);
+    return NoteDto.fromJson(doc.data()! as Map<String, dynamic>).copyWith(id: doc.id,);
   }
 }

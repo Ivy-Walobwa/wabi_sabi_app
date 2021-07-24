@@ -35,7 +35,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.0"
+    version: "2.8.1"
   auto_route:
     dependency: "direct main"
     description:
@@ -57,13 +57,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.0.0"
-  boolean_selector:
-    dependency: transitive
-    description:
-      name: boolean_selector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   build:
     dependency: transitive
     description:
@@ -98,7 +91,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.0.6"
   build_runner_core:
     dependency: transitive
     description:
@@ -225,13 +218,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.0-nullsafety.1"
-  fake_async:
-    dependency: transitive
-    description:
-      name: fake_async
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   file:
     dependency: transitive
     description:
@@ -363,11 +349,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  flutter_test:
-    dependency: "direct dev"
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -407,7 +388,7 @@ packages:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.1.4"
+    version: "7.2.0"
   glob:
     dependency: transitive
     description:
@@ -486,7 +467,7 @@ packages:
     source: hosted
     version: "1.4.1"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       url: "https://pub.dartlang.org"
@@ -562,6 +543,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  modal_bottom_sheet:
+    dependency: "direct main"
+    description:
+      name: modal_bottom_sheet
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   nested:
     dependency: transitive
     description:
@@ -671,7 +659,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.0"
   stack_trace:
     dependency: transitive
     description:
@@ -707,13 +695,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  test_api:
-    dependency: transitive
-    description:
-      name: test_api
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
   timing:
     dependency: transitive
     description:

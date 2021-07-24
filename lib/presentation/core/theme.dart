@@ -3,7 +3,7 @@ import 'constants.dart';
 
 final ThemeData appTheme = ThemeData(
   primaryColor: kpurpleColor,
-  accentColor: klightPinkColor,
+  accentColor: klightPinkColor1,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   fontFamily: 'Raleway',
   textTheme: const TextTheme(
@@ -48,14 +48,15 @@ final ThemeData appTheme = ThemeData(
   iconTheme: const IconThemeData(
     size: 32,
   ),
-  textSelectionTheme: const TextSelectionThemeData(cursorColor: klightPinkColor),
+  textSelectionTheme: const TextSelectionThemeData(cursorColor: klightPinkColor1),
   inputDecorationTheme: const InputDecorationTheme(
-    labelStyle: TextStyle(color: klightPinkColor),
+    labelStyle: TextStyle(color: klightPinkColor1),
     enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: klightPinkColor, width: 0.0),
+      borderSide: BorderSide(color: klightPinkColor1, width: 0.0),
     ),
     focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: klightPinkColor, width: 0.0),
+      borderSide: BorderSide(color: klightPinkColor1, width: 0.0),
     ),
   ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: kpurpleColor, foregroundColor: klightPinkColor2,elevation: 20),
 );

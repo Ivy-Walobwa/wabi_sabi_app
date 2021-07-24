@@ -29,20 +29,26 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         yield e.initialNote == null
             ? state
             : state.copyWith(
-          note: state.note,
+          note: e.initialNote!,
           isEditing: true,
         );
       },
       noteLeadOnTextChanged: (e) async* {
-        yield state.copyWith(
-          note: state.note.copyWith(
-            noteLeadOnText: NoteLeadOnText(e.noteLeadingText),
-          ),
-          saveFailureOrSuccess: none(),
-        );
+        if(state.note.noteLeadOnText != NoteLeadOnText(e.noteLeadingText)){
+          yield state.copyWith(
+            isBodyChanged: false,
+            note: state.note.copyWith(
+              noteLeadOnText: NoteLeadOnText(e.noteLeadingText),
+
+            ),
+            saveFailureOrSuccess: none(),
+          );
+        }
+
       },
       noteBodyChanged: (e) async* {
         yield state.copyWith(
+            isBodyChanged: true,
           note: state.note.copyWith(
             noteBody: NoteBody(e.bodyText),
           ),
@@ -51,21 +57,28 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
       },
       saved: (e) async* {
 
-        yield state.copyWith(
-          isSaving: true,
-          saveFailureOrSuccess: none(),
-        );
+        if(state.note.failureOption.isNone()){
+          yield state.copyWith(
+            isSaving: true,
+            saveFailureOrSuccess: none(),
+          );
 
-        final Either<NoteFailure, Unit> failureOrSuccess = (state.note.failureOption
-            .isNone() && state.isEditing) ? await _noteRepositoryInterface
-            .update(state.note) : await _noteRepositoryInterface.create(
-            state.note);
+          final Either<NoteFailure, Unit> failureOrSuccess = state.isEditing ? await _noteRepositoryInterface
+              .update(state.note) : await _noteRepositoryInterface.create(
+              state.note);
+
+          yield state.copyWith(
+            isSaving: false,
+            saveFailureOrSuccess: some(failureOrSuccess),
+          );
+        }
 
         yield state.copyWith(
           isSaving: false,
           showError: true,
-          saveFailureOrSuccess: some(failureOrSuccess),
+          saveFailureOrSuccess: none(),
         );
+
       },
     );
   }

@@ -4,6 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:cloud_firestore/cloud_firestore.dart' as _i4;
 import 'package:firebase_auth/firebase_auth.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
@@ -24,9 +25,16 @@ import 'infrastructure/notes/note_repository.dart'
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
-  final gh = _i2.GetItHelper(get, environment, environmentFilter);
+_i1.GetIt $initGetIt(
+  _i1.GetIt get, {
+  String? environment,
+  _i2.EnvironmentFilter? environmentFilter,
+}) {
+  final gh = _i2.GetItHelper(
+    get,
+    environment,
+    environmentFilter,
+  );
   final firebaseInjectableModule = _$FirebaseInjectableModule();
   gh.lazySingleton<_i3.FirebaseAuth>(
       () => firebaseInjectableModule.firebaseAuth);
@@ -39,7 +47,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i8.NoteWatcherBloc>(
       () => _i8.NoteWatcherBloc(get<_i6.NoteRepositoryInterface>()));
   gh.lazySingleton<_i9.AuthFacadeInterface>(() => _i10.FirebaseAuthFacade(
-      get<_i3.FirebaseAuth>(), get<_i5.GoogleSignIn>()));
+        get<_i3.FirebaseAuth>(),
+        get<_i5.GoogleSignIn>(),
+      ));
   gh.factory<_i11.NoteActorBloc>(
       () => _i11.NoteActorBloc(get<_i6.NoteRepositoryInterface>()));
   gh.factory<_i12.NoteFormBloc>(

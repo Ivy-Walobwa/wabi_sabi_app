@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'note_dtos.dart';
 
@@ -10,36 +12,11 @@ part of 'note_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 NoteDto _$NoteDtoFromJson(Map<String, dynamic> json) {
   return _NoteDto.fromJson(json);
 }
-
-/// @nodoc
-class _$NoteDtoTearOff {
-  const _$NoteDtoTearOff();
-
-  _NoteDto call(
-      {@JsonKey(ignore: true) String? id,
-      required String noteBody,
-      required String noteTimeStamp,
-      String? noteLeadOnText}) {
-    return _NoteDto(
-      id: id,
-      noteBody: noteBody,
-      noteTimeStamp: noteTimeStamp,
-      noteLeadOnText: noteLeadOnText,
-    );
-  }
-
-  NoteDto fromJson(Map<String, Object> json) {
-    return NoteDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NoteDto = _$NoteDtoTearOff();
 
 /// @nodoc
 mixin _$NoteDto {
@@ -57,7 +34,8 @@ mixin _$NoteDto {
 /// @nodoc
 abstract class $NoteDtoCopyWith<$Res> {
   factory $NoteDtoCopyWith(NoteDto value, $Res Function(NoteDto) then) =
-      _$NoteDtoCopyWithImpl<$Res>;
+      _$NoteDtoCopyWithImpl<$Res, NoteDto>;
+  @useResult
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String noteBody,
@@ -66,46 +44,51 @@ abstract class $NoteDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NoteDtoCopyWithImpl<$Res> implements $NoteDtoCopyWith<$Res> {
+class _$NoteDtoCopyWithImpl<$Res, $Val extends NoteDto>
+    implements $NoteDtoCopyWith<$Res> {
   _$NoteDtoCopyWithImpl(this._value, this._then);
 
-  final NoteDto _value;
   // ignore: unused_field
-  final $Res Function(NoteDto) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? noteBody = freezed,
-    Object? noteTimeStamp = freezed,
+    Object? noteBody = null,
+    Object? noteTimeStamp = null,
     Object? noteLeadOnText = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      noteBody: noteBody == freezed
+      noteBody: null == noteBody
           ? _value.noteBody
           : noteBody // ignore: cast_nullable_to_non_nullable
               as String,
-      noteTimeStamp: noteTimeStamp == freezed
+      noteTimeStamp: null == noteTimeStamp
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
               as String,
-      noteLeadOnText: noteLeadOnText == freezed
+      noteLeadOnText: freezed == noteLeadOnText
           ? _value.noteLeadOnText
           : noteLeadOnText // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
-  factory _$NoteDtoCopyWith(_NoteDto value, $Res Function(_NoteDto) then) =
-      __$NoteDtoCopyWithImpl<$Res>;
+abstract class _$$_NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
+  factory _$$_NoteDtoCopyWith(
+          _$_NoteDto value, $Res Function(_$_NoteDto) then) =
+      __$$_NoteDtoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String noteBody,
@@ -114,35 +97,34 @@ abstract class _$NoteDtoCopyWith<$Res> implements $NoteDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$NoteDtoCopyWithImpl<$Res> extends _$NoteDtoCopyWithImpl<$Res>
-    implements _$NoteDtoCopyWith<$Res> {
-  __$NoteDtoCopyWithImpl(_NoteDto _value, $Res Function(_NoteDto) _then)
-      : super(_value, (v) => _then(v as _NoteDto));
+class __$$_NoteDtoCopyWithImpl<$Res>
+    extends _$NoteDtoCopyWithImpl<$Res, _$_NoteDto>
+    implements _$$_NoteDtoCopyWith<$Res> {
+  __$$_NoteDtoCopyWithImpl(_$_NoteDto _value, $Res Function(_$_NoteDto) _then)
+      : super(_value, _then);
 
-  @override
-  _NoteDto get _value => super._value as _NoteDto;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? noteBody = freezed,
-    Object? noteTimeStamp = freezed,
+    Object? noteBody = null,
+    Object? noteTimeStamp = null,
     Object? noteLeadOnText = freezed,
   }) {
-    return _then(_NoteDto(
-      id: id == freezed
+    return _then(_$_NoteDto(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      noteBody: noteBody == freezed
+      noteBody: null == noteBody
           ? _value.noteBody
           : noteBody // ignore: cast_nullable_to_non_nullable
               as String,
-      noteTimeStamp: noteTimeStamp == freezed
+      noteTimeStamp: null == noteTimeStamp
           ? _value.noteTimeStamp
           : noteTimeStamp // ignore: cast_nullable_to_non_nullable
               as String,
-      noteLeadOnText: noteLeadOnText == freezed
+      noteLeadOnText: freezed == noteLeadOnText
           ? _value.noteLeadOnText
           : noteLeadOnText // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -161,7 +143,7 @@ class _$_NoteDto extends _NoteDto {
       : super._();
 
   factory _$_NoteDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_NoteDtoFromJson(json);
+      _$$_NoteDtoFromJson(json);
 
   @override
   @JsonKey(ignore: true)
@@ -181,60 +163,57 @@ class _$_NoteDto extends _NoteDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NoteDto &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_NoteDto &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.noteBody, noteBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.noteBody, noteBody)) &&
+                other.noteBody == noteBody) &&
             (identical(other.noteTimeStamp, noteTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.noteTimeStamp, noteTimeStamp)) &&
+                other.noteTimeStamp == noteTimeStamp) &&
             (identical(other.noteLeadOnText, noteLeadOnText) ||
-                const DeepCollectionEquality()
-                    .equals(other.noteLeadOnText, noteLeadOnText)));
+                other.noteLeadOnText == noteLeadOnText));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(noteBody) ^
-      const DeepCollectionEquality().hash(noteTimeStamp) ^
-      const DeepCollectionEquality().hash(noteLeadOnText);
 
   @JsonKey(ignore: true)
   @override
-  _$NoteDtoCopyWith<_NoteDto> get copyWith =>
-      __$NoteDtoCopyWithImpl<_NoteDto>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, id, noteBody, noteTimeStamp, noteLeadOnText);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NoteDtoCopyWith<_$_NoteDto> get copyWith =>
+      __$$_NoteDtoCopyWithImpl<_$_NoteDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_NoteDtoToJson(this);
+    return _$$_NoteDtoToJson(
+      this,
+    );
   }
 }
 
 abstract class _NoteDto extends NoteDto {
   const factory _NoteDto(
-      {@JsonKey(ignore: true) String? id,
-      required String noteBody,
-      required String noteTimeStamp,
-      String? noteLeadOnText}) = _$_NoteDto;
+      {@JsonKey(ignore: true) final String? id,
+      required final String noteBody,
+      required final String noteTimeStamp,
+      final String? noteLeadOnText}) = _$_NoteDto;
   const _NoteDto._() : super._();
 
   factory _NoteDto.fromJson(Map<String, dynamic> json) = _$_NoteDto.fromJson;
 
   @override
   @JsonKey(ignore: true)
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
   @override
-  String get noteBody => throw _privateConstructorUsedError;
+  String get noteBody;
   @override
-  String get noteTimeStamp => throw _privateConstructorUsedError;
+  String get noteTimeStamp;
   @override
-  String? get noteLeadOnText => throw _privateConstructorUsedError;
+  String? get noteLeadOnText;
   @override
   @JsonKey(ignore: true)
-  _$NoteDtoCopyWith<_NoteDto> get copyWith =>
+  _$$_NoteDtoCopyWith<_$_NoteDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
